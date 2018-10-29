@@ -16,4 +16,15 @@ class Post extends Model
     {
        return $this->belongsTo('App\Model\Category');
     }
+
+    public function attachments()
+    {
+        return $this->hasMany('App\Model\Attachment', 'post_id');
+    }
+
+    public function videos()
+    {
+        return $this->hasMany('App\Model\Video', 'post_id');
+    }
+
 }
