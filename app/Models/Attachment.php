@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Attachment extends Model
 {
     protected $fillable = [
-        'path'
+        'path',
+        'roles'
     ];
 
     public function post()
@@ -15,4 +16,13 @@ class Attachment extends Model
         return $this->belongsTo('App\Model\Post');
     }
 
+    public function getRolesAttribute($value)
+    {
+        return json_decode($value);
+    }
+
+    public function setRolesAttribute($roles)
+    {
+        $this->attributes['roles'] = json_encode($roles);
+    }
 }
