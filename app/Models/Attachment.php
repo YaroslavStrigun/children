@@ -13,7 +13,7 @@ class Attachment extends Model
 
     public function post()
     {
-        return $this->belongsTo('App\Model\Post');
+        return $this->belongsTo('App\Models\Post');
     }
 
     public function getRolesAttribute($value)

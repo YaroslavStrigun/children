@@ -77,7 +77,8 @@
                                     </div>
                                 @endif
                             @endforeach
-
+                            @include('includes.admin.attachment')
+                            @include('includes.admin.attachments', ['attachments' => $dataTypeContent->attachments])
                         </div><!-- panel-body -->
 
                         <div class="panel-footer">
@@ -124,6 +125,7 @@
 @stop
 
 @section('javascript')
+    <script src="{{ asset('js/admin/slides/readURL.js') }}"></script>
     <script>
         var params = {};
         var $image;
