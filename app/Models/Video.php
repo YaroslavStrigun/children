@@ -14,4 +14,14 @@ class Video extends Model
     {
         return $this->belongsTo('App\Model\Post');
     }
+
+    public function getIframeLinkAttribute()
+    {
+        return str_replace('watch?v=','embed/' , $this->link);
+    }
+
+    public function getImageLinkAttribute()
+    {
+        return 'https://img.youtube.com/vi/' . array_pop(explode('=', $this->link)) . '/0.jpg';
+    }
 }

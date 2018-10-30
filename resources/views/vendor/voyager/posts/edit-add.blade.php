@@ -80,6 +80,7 @@
                             @include('includes.admin.attachment')
                             Добавить картинки слайдера
                             @include('includes.admin.attachments', ['attachments' => $dataTypeContent->attachments])
+                            @include('includes.admin.videos', ['videos' => $dataTypeContent->videos])
                         </div><!-- panel-body -->
 
                         <div class="panel-footer">
@@ -128,6 +129,7 @@
 @section('javascript')
     <script src="{{ asset('js/libs/repeater/jquery.repeatable.js') }}"></script>
     <script src="{{ asset('js/admin/attachments-repeater.js') }}"></script>
+    <script src="{{ asset('js/admin/videos-repeater.js') }}"></script>
     <script src="{{ asset('js/admin/slides/readURL.js') }}"></script>
     <script>
         var params = {};
