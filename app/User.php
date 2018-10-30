@@ -27,4 +27,9 @@ class User extends \TCG\Voyager\Models\User
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getLocaleAttribute()
+    {
+        return config('voyager.default_locale', 'ru');
+    }
 }
