@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Repositories\AttachmentRepository;
+use App\Repositories\VideoRepository;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use TCG\Voyager\Events\BreadDataAdded;
@@ -14,10 +15,12 @@ use TCG\Voyager\Http\Controllers\VoyagerBaseController;
 class PostController extends VoyagerBaseController
 {
     public $attachmentRepository;
+    public $videoRepository;
 
-    public function __construct(AttachmentRepository $attachmentRepository)
+    public function __construct(AttachmentRepository $attachmentRepository, VideoRepository $videoRepository)
     {
         $this->attachmentRepository = $attachmentRepository;
+        $this->videoRepository = $videoRepository;
     }
 
     public function update(Request $request, $id)
@@ -56,6 +59,14 @@ class PostController extends VoyagerBaseController
 
             $this->attachmentRepository->saveAttachments($request, $data);
 
+            $videos = $data->videos->keyBy('id');
+
+            $this->videoRepository->deleteVideos($request, $videos, ['videos']);
+
+            $this->videoRepository->updateVideos($request, $videos, 'videos');
+
+            $this->videoRepository->saveVideos($request, $data);
+
             event(new BreadDataUpdated($dataType, $data));
 
             return redirect()
@@ -89,6 +100,8 @@ class PostController extends VoyagerBaseController
 
                 if (!$request->ajax()) {
                     $this->attachmentRepository->saveAttachments($request, $data);
+
+                    $this->videoRepository->saveVideos($request, $data, 'videos_new');
                     // update or store main image
                     if ($request->file('main_attachment')) {
                         $this->attachmentRepository->updateOrCreateMainAttachment($request, $attachments, $data);
@@ -129,9 +142,15 @@ class PostController extends VoyagerBaseController
         }
         foreach ($ids as $id) {
             $data = call_user_func([$dataType->model_name, 'findOrFail'], $id);
+
             foreach ($data->attachments as $attachment){
                 $this->attachmentRepository->deleteAttachment($attachment);
             }
+
+            foreach ($data->videos as $video) {
+                $video->delete();
+            }
+
             $this->cleanup($dataType, $data);
         }
 
