@@ -13,7 +13,7 @@ class AddRolesFieldToAttachmentTable extends Migration
      */
     public function up()
     {
-        Schema::table('attachment', function (Blueprint $table) {
+        Schema::table('attachments', function (Blueprint $table) {
             $table->string('roles')->after('path');
         });
     }
@@ -25,7 +25,7 @@ class AddRolesFieldToAttachmentTable extends Migration
      */
     public function down()
     {
-        Schema::table('attachment', function (Blueprint $table) {
+        Schema::table('attachments', function (Blueprint $table) {
             $table->dropColumn('roles');
         });
     }

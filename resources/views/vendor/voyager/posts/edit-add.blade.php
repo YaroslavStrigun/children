@@ -78,7 +78,6 @@
                                 @endif
                             @endforeach
                             @include('includes.admin.attachment')
-                            Добавить картинки слайдера
                             @include('includes.admin.attachments', ['attachments' => $dataTypeContent->attachments])
                             @include('includes.admin.videos', ['videos' => $dataTypeContent->videos])
                         </div><!-- panel-body -->

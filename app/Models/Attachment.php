@@ -8,7 +8,8 @@ class Attachment extends Model
 {
     protected $fillable = [
         'path',
-        'roles'
+        'roles',
+        'post_id'
     ];
 
     public function post()
@@ -25,4 +26,5 @@ class Attachment extends Model
     {
         $this->attributes['roles'] = json_encode($roles);
     }
+
 }

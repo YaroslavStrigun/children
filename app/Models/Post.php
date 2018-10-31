@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use App\Contracts\Models\FolderedAttachments;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Post extends Model implements FolderedAttachments
 {
+    const ATTACHMENT_DIRECTORY = 'posts';
+
     protected $fillable = [
         'title',
         'short_description',
@@ -47,6 +50,9 @@ class Post extends Model
         return $attachments;
     }
 
-
+    public function getAttachmentDirectory()
+    {
+        return self::ATTACHMENT_DIRECTORY . '/' . $this->id;
+    }
 
 }

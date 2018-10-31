@@ -1,5 +1,6 @@
 <div class="field-group-attachment admin-item">
     @foreach($attachments as $attachment)
+        @if(!in_array('main', $attachment->roles))
         <div class="form-group">
             <div class="change-image-wrap">
                 <div class="change-image">
@@ -16,6 +17,7 @@
             </div>
             <!-- /.change-image-wrap -->
         </div>
+        @endif
     @endforeach
         <div class="attachments-block"></div>
         <button type="button" class="btn btn-primary add-btn add-attachment">Добавить блок</button>
