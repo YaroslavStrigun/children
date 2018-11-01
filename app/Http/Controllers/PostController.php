@@ -19,7 +19,7 @@ class PostController
             return view('posts', compact('category', 'posts'));
     }
 
-    public function getPost($id)
+    public function getPost($slug, $id)
     {
         $post = Post::with(['attachments', 'videos'])->find($id);
 
