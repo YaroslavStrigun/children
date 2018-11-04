@@ -15,9 +15,4 @@ class Page extends Model implements FolderedAttachments
     protected $fillable = [
       'slug', 'name', 'text'
     ];
-
-    public function videos()
-    {
-        return $this->hasMany('App\Models\Video', 'post_id');
-    }
 }

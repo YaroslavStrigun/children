@@ -11,7 +11,7 @@
 |
 */
 
-Route::view('/', 'index');
+Route::get('/', 'HomeController@index')->name('index');
 
 Route::get('/category/{slug}/posts', 'PostController@postsByCategory')->name('posts.by.category');
 

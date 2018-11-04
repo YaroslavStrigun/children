@@ -78,7 +78,13 @@
                                     </div>
                                 @endif
                             @endforeach
-                                @include('includes.admin.attachments', ['attachments' => $dataTypeContent->attachments ?? []])
+                                @php
+                                    $morphMap = Illuminate\Database\Eloquent\Relations\Relation::morphMap();
+                                    $class = get_class($dataTypeContent);
+                                @endphp
+                                @if(in_array($class, $morphMap))
+                                    @include('includes.admin.attachments', ['attachments' => $dataTypeContent->attachments])
+                                @endif
                         </div><!-- panel-body -->
 
                         <div class="panel-footer">
