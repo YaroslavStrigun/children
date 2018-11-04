@@ -18,6 +18,10 @@ class ComposerServiceProvider extends ServiceProvider
         View::composer(
             ['layouts.header'], 'App\Http\ViewComposers\CategoryComposer'
         );
+
+        View::composer(
+            ['layouts.footer'], 'App\Http\ViewComposers\CategoryComposer'
+        );
     }
 
     /**
