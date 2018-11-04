@@ -15,6 +15,8 @@ Route::view('/', 'index');
 
 Route::get('/category/{slug}/posts', 'PostController@postsByCategory')->name('posts.by.category');
 
+Route::get('/page/{slug}', 'PostController@pageBySlug')->name('page');
+
 Route::get('/category/{slug}/post/{id}', 'PostController@getPost')->name('post');
 
 

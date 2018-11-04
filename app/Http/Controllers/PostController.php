@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Category;
+use App\Models\Page;
 use App\Models\Post;
 
 class PostController
@@ -26,4 +27,10 @@ class PostController
         return view('post', compact('post'));
     }
 
+    public function pageBySlug($slug)
+    {
+        $page = Page::where('slug', $slug)->first();
+
+        return view('page', compact($page));
+    }
 }
