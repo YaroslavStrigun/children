@@ -1,5 +1,28 @@
 @extends('layouts.app')
 @section('content')
+
+    <div class="main-slider swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="http://xn--e1afjir7df.xn--d1acj3b/img/kids8.jpg">
+            </div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Slide 4</div>
+            <div class="swiper-slide">Slide 5</div>
+            <div class="swiper-slide">Slide 6</div>
+            <div class="swiper-slide">Slide 7</div>
+            <div class="swiper-slide">Slide 8</div>
+            <div class="swiper-slide">Slide 9</div>
+            <div class="swiper-slide">Slide 10</div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
     <div id="carousel">
         <div class="btn-bar">
             <div id="buttons"><a id="prev" href="#"><</a><a id="next" href="#">></a></div>
@@ -25,77 +48,21 @@
     </div>
 @endsection
 @push('footer_scripts')
+    <script src="{{ asset('js/index-page.js') }}"></script>
     <script>
-        $(document).ready(function () {
-            //rotation speed and timer
-            var speed = 5000;
-
-            var run = setInterval(rotate, speed);
-            var slides = $('.slide');
-            var container = $('#slides ul');
-            var elm = container.find(':first-child').prop("tagName");
-            var item_width = container.width();
-            var previous = 'prev'; //id of previous button
-            var next = 'next'; //id of next button
-            slides.width(item_width); //set the slides to the correct pixel width
-            container.parent().width(item_width);
-            container.width(slides.length * item_width); //set the slides container to the correct total width
-            container.find(elm + ':first').before(container.find(elm + ':last'));
-            resetSlides();
-
-
-            //if user clicked on prev button
-
-            $('#buttons a').click(function (e) {
-                //slide the item
-
-                if (container.is(':animated')) {
-                    return false;
-                }
-                if (e.target.id == previous) {
-                    container.stop().animate({
-                        'left': 0
-                    }, 1500, function () {
-                        container.find(elm + ':first').before(container.find(elm + ':last'));
-                        resetSlides();
-                    });
-                }
-
-                if (e.target.id == next) {
-                    container.stop().animate({
-                        'left': item_width * -2
-                    }, 1500, function () {
-                        container.find(elm + ':last').after(container.find(elm + ':first'));
-                        resetSlides();
-                    });
-                }
-
-                //cancel the link behavior
-                return false;
-
-            });
-
-            //if mouse hover, pause the auto rotation, otherwise rotate it
-            container.parent().mouseenter(function () {
-                clearInterval(run);
-            }).mouseleave(function () {
-                run = setInterval(rotate, speed);
-            });
-
-
-            function resetSlides() {
-                //and adjust the container so current is in the frame
-                container.css({
-                    'left': -1 * item_width
-                });
-            }
-
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
         });
-        //a simple function to click next link
-        //a timer will call this function, and the rotation will begin
-
-        function rotate() {
-            $('#next').click();
-        }
     </script>
 @endpush
