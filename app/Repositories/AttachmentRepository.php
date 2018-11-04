@@ -6,6 +6,7 @@ namespace App\Repositories;
 use App\Contracts\Models\FolderedAttachments;
 use App\Models\Attachment;
 use Bosnadev\Repositories\Eloquent\Repository;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -35,7 +36,8 @@ class AttachmentRepository extends Repository
 
         $path = Storage::disk('public')->put($directory, $file);
         $attachment =  Attachment::create([
-            'post_id' => $model->id,
+            'attachable_id' => is_null($model) ? $model : $model->id,
+            'attachable_type' => is_null($model) ? $model : array_search(get_class($model), Relation::morphMap()),
             'path' => $path,
             'roles' => $roles,
         ]);
@@ -83,7 +85,7 @@ class AttachmentRepository extends Repository
         }
     }
 
-    public function updateAttachments(Request $request, $attachments, string $input_type = 'slides')
+    public function updateAttachments(Request $request, $attachments, string $input_type = 'attachments')
     {
         foreach ($request->input($input_type, []) as $attachment_id => $attachment_data) {
             $attachment = $attachments->get($attachment_id);
@@ -92,6 +94,31 @@ class AttachmentRepository extends Repository
 
             $this->updateAttachment($attachment, $request->file($attachment_id), $attachment_data['roles'], $titles, $order);
         }
+    }
+
+    public function updateAttachment( Attachment $attachment, $file = null, array $roles = [], array $titles = [], $order = null)
+    {
+        $model = $attachment->attachable;
+        $old_path = $path = $attachment->path;
+
+        if ($model instanceof FolderedAttachments)
+            $directory = $model->getAttachmentDirectory();
+        else
+            $directory = '';
+
+        if (!is_null($file)) {
+            $path = Storage::disk('public')->put($directory, $file);
+        }
+
+        $attachment->update([
+            'roles' => $roles,
+            'path' => $path,
+        ]);
+
+        if ($path != $old_path) {
+            self::deleteAttachmentImage($old_path);
+        }
+
     }
 
 }

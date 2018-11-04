@@ -29,8 +29,8 @@ class PostController
 
     public function pageBySlug($slug)
     {
-        $page = Page::where('slug', $slug)->first();
+        $page = Page::with('attachments')->where('slug', $slug)->first();
 
-        return view('page', compact($page));
+        return view('page', compact('page'));
     }
 }

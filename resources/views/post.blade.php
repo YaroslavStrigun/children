@@ -1,7 +1,9 @@
 @extends('layouts.app')
 @section('content')
     <h2>{{ $post->title }}</h2>
-    <p>{{ $post->description }}</p>
+    <div class="description">
+        {!! $post->description !!}
+    </div>
     @foreach($post->getAttachments('slider') as $attachment)
         <img src="{{ Voyager::image($attachment->path) }}">
     @endforeach

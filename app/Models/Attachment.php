@@ -8,13 +8,14 @@ class Attachment extends Model
 {
     protected $fillable = [
         'path',
-        'roles',
-        'post_id'
+        'attachable_type',
+        'attachable_id',
+        'roles'
     ];
 
     public function post()
     {
-        return $this->belongsTo('App\Models\Post');
+        return $this->morphTo();
     }
 
     public function getRolesAttribute($value)

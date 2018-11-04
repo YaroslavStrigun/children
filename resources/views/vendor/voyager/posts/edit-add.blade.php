@@ -130,6 +130,9 @@
     <script src="{{ asset('js/admin/attachments-repeater.js') }}"></script>
     <script src="{{ asset('js/admin/videos-repeater.js') }}"></script>
     <script src="{{ asset('js/admin/slides/readURL.js') }}"></script>
+    <script src = " {{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }} " > </script>
+    <script src = " {{ asset('vendor/unisharp/laravel-ckeditor/adapters/jquery.js') }}" > </script>
+    <script src="{{ asset('js/admin/redactor.js') }}"></script>
     <script>
         var params = {};
         var $image;

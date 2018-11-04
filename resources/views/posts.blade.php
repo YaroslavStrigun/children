@@ -10,7 +10,7 @@
             <img src="{{ Voyager::image($attachment->path) }}">
         </div>
         <div class="short-description">
-            <p>{{ $post->short_description }}</p>
+            {!! $post->short_description !!}
             <a href="{{ route('post', ['slug' => $category->slug, 'id' => $post->id]) }}">Детальніше</a>
         </div>
     @endforeach
