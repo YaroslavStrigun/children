@@ -1,5 +1,5 @@
 <footer>
-    <div class="container-fluid">
+    <div class="">
         <div class="footer-wrapper">
             <div class="footer__item footer__logo">
                 <a class="logotype" href="{{ route('index') }}">
