@@ -50,6 +50,26 @@
         <button type="button" class="btn pay-button center-block">
             <a class="display-4" href="#" style="text-decoration: none">Пожертвовать</a>
         </button>
+
+        <div class="container marketing">
+
+            <!-- Three columns of text below the carousel -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="  width="140" height="140">
+                    <p>Стригун Ярослав</p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="  width="140" height="140">
+                    <p>Орловская Нина Константиновна</p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="140" height="140">
+                    <p>Красова Мария</p>
+                </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->
+
+        </div>
     <div class="alert alert-primary center" role="alert">
         <strong>Внимание, </strong> нужны волонтеры!
     </div>
