@@ -23,6 +23,7 @@
         <div class="swiper-button-prev"></div>
     </div>
 
+    <div class="container">
     <div id="carousel">
         <div class="btn-bar">
             <div id="buttons"><a id="prev" href="#"><</a><a id="next" href="#">></a></div>
@@ -45,6 +46,14 @@
                 @endforeach
             </ul>
         </div>
+    </div>
+        <button type="button" class="btn pay-button center-block">
+            <a class="display-4" href="#" style="text-decoration: none">Пожертвовать</a>
+        </button>
+    <div class="alert alert-primary center" role="alert">
+        <strong>Внимание, </strong> нужны волонтеры!
+    </div>
+
     </div>
 @endsection
 @push('footer_scripts')

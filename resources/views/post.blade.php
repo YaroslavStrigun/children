@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+    <div class="container">
     <h2>{{ $post->title }}</h2>
     <div class="description">
         {!! $post->description !!}
@@ -11,4 +12,5 @@
         <iframe width="100%" height="100%" src="{{ $video->iframe_link }}" frameborder="0"
                 allow="autoplay; encrypted-media" allowfullscreen></iframe>
     @endforeach
+    </div>
 @endsection

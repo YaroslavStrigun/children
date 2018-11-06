@@ -273,4 +273,32 @@ a#prev:hover, a#next:hover {
     width: 100%;
 }
 
+.center {
+    text-align:center;
+}
+
+.post {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    border-radius: .25rem!important;
+    border: 2px solid #ffcc18!important;
+    margin-bottom: 15px;
+}
+.pay-button {
+    background-color: rgba(255,246,28,0.98);
+    border-color: #007bff;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.pay-button:hover {
+    background-color: rgba(255,227,27,0.98);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.pay-button a{
+    color: #0c0c0c;
+    text-decoration: none;!important;
+}
+
 
