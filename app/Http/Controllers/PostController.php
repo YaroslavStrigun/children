@@ -12,7 +12,7 @@ class PostController
     public function postsByCategory($slug)
     {
         $category = Category::where('slug', $slug)->with('posts.attachments')->first();
-        $posts = $category->posts()->paginate(1);
+        $posts = $category->posts()->paginate(2);
 
         if (is_null($category))
             return back();
