@@ -456,4 +456,7 @@ a#prev:hover, a#next:hover {
     text-decoration: none;!important;
 }
 
+.swiper-video .swiper-slide {
+    text-align: center;
+}
 
