@@ -86,13 +86,7 @@ $(document).ready(function () {
         },
     });
 
-    var video_swiper = new Swiper('.swiper-video', {
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
-    var reviewSlider = new Swiper('.review__slider', {
+    var child_swiper = new Swiper('.swiper-child', {
         slidesPerView: 1,
         loop: true,
         navigation: {

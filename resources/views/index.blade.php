@@ -3,11 +3,14 @@
 
     <section class="main-slider swiper-container">
         <div class="swiper-wrapper">
-            @foreach($children as $child)
-                @if(!is_null($child->getAttachment('main')->path))
+`            @foreach($children_works as $work)
+                @if(!is_null($work->getAttachment('main')->path))
                     <div class="swiper-slide">
-                        <img class="main-slider__image" src="{{ Voyager::image($child->getAttachment('main')->path) }}">
-                        <div class="main-slider__text">{!! $child->short_description !!}</div>
+                        <img class="main-slider__image" src="{{ Voyager::image($work->getAttachment('main')->path) }}">
+                        <div class="main-slider__text">
+                            {!! $work->short_description !!}
+                            <a href="{{ route('post', ['slug' => $work->category->slug, 'id' => $work->id]) }}">Подробнее</a>
+                        </div>
                     </div>
                 @endif
             @endforeach
@@ -38,15 +41,19 @@
             </div>
         </div>
     </section>
-        <div class="swiper-video swiper-container">
+    <div>
+        <h2 class="center display-4">Они требуют вашей помощи</h2>
+    </div>
+        <div class="swiper-child swiper-container">
             <div class="swiper-wrapper">
-                @foreach($children_works as $work)
-                    @if($work->videos->isNotEmpty())
+                @foreach($children as $child)
+                    @if(!is_null($child->getAttachment('main')->path))
                         <div class="swiper-slide">
-                            <iframe width="560" height="315" src="{{ $work->videos->first()->iframe_link }}"
-                                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-
-                            </iframe>
+                            <img class="main-slider__image" src="{{ Voyager::image($child->getAttachment('main')->path) }}">
+                            <div class="main-slider__text">
+                                {!! $child->short_description !!}
+                                <a href="{{ route('post', ['slug' => $child->category->slug, 'id' => $child->id]) }}">Подробнее</a>
+                            </div>
                         </div>
                     @endif
                 @endforeach
