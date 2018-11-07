@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Video extends Model
 {
     protected $fillable = [
-      'link'
+        'link',
+        'post_id'
     ];
 
     public function post()

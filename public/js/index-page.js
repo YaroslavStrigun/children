@@ -86,6 +86,13 @@ $(document).ready(function () {
         },
     });
 
+    var video_swiper = new Swiper('.swiper-video', {
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
 });
 //a simple function to click next link
 //a timer will call this function, and the rotation will begin

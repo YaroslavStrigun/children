@@ -61,6 +61,25 @@
         {{--</ul>--}}
         {{--</div>--}}
         {{--</div>--}}
+
+
+        <div class="swiper-video swiper-container">
+            <div class="swiper-wrapper">
+                @foreach($children_works as $work)
+                    @if($work->videos->isNotEmpty())
+                        <div class="swiper-slide">
+                            <iframe width="560" height="315" src="{{ $work->videos->first()->iframe_link }}"
+                                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+                            </iframe>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
         <button type="button" class="btn pay-button center-block">
             <a class="display-4" href="#" style="text-decoration: none">Пожертвовать</a>
         </button>
