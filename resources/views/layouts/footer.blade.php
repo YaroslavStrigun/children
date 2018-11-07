@@ -43,4 +43,5 @@
 </footer>
 <script src="{{ asset('js/jquery.js') }}"></script>
 <script src="{{ asset('js/libs/swiper/swiper.min.js') }}"></script>
+<script src="{{ asset('js/menu.js') }}"></script>
 @stack('footer_scripts')

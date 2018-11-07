@@ -1,14 +1,14 @@
 <header class="header">
-    <div class="container">
+    <div class="container-fluid">
         <div class="header-wrap">
             <div class="burger-menu">
                 <span class="burger-menu__line"></span>
                 <span class="burger-menu__line"></span>
                 <span class="burger-menu__line"></span>
             </div>
-            <div class="logo">
-
-            </div>
+            <a href="/" class="logo">
+                <img src="{{ Voyager::image(setting('site.logo')) }}">
+            </a>
             <div class="header-contact">
                 <a class="header-contact__link" href="tel:+380935100759">(093) 510-07-59</a>
             </div>

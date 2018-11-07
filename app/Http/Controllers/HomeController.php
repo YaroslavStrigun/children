@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Category;
 use App\Models\Saying;
 
 class HomeController extends Controller
@@ -11,7 +12,9 @@ class HomeController extends Controller
     {
         $sayings = Saying::all();
 
-        return view('index', compact('sayings'));
+        $children = Category::where('slug', 'waiting-help')->first()->posts;
+
+        return view('index', compact('sayings', 'children'));
     }
 
 }

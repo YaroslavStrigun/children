@@ -62,16 +62,6 @@ $(document).ready(function () {
         });
     }
 
-    $('.burger-menu').on('click', function() {
-       $('.slide-menu').toggleClass('open');
-       $('.overlay').show();
-       $('body').addClass('hidden');
-    });
-    $('.overlay').on('click', function () {
-        $('.slide-menu').removeClass('open');
-        $(this).hide();
-        $('body').removeClass('hidden');
-    });
 
     var mainSlider = new Swiper('.main-slider', {
         slidesPerView: 1,
