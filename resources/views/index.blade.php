@@ -38,31 +38,6 @@
             </div>
         </div>
     </section>
-        {{--<div id="carousel">--}}
-        {{--<div class="btn-bar">--}}
-        {{--<div id="buttons"><a id="prev" href="#"><</a><a id="next" href="#">></a></div>--}}
-        {{--</div>--}}
-        {{--<div id="slides">--}}
-        {{--<ul>--}}
-        {{--@foreach($sayings as $saying)--}}
-        {{--<li class="slide">--}}
-        {{--<div class="quoteContainer">--}}
-        {{--<p class="quote-phrase"><span class="quote-marks">"</span>--}}
-        {{--{!! strip_tags($saying->text ) !!}--}}
-        {{--</p>--}}
-        {{--</div>--}}
-        {{--<div class="authorContainer">--}}
-        {{--<p class="quote-author">--}}
-        {{--{{ $saying->author }}--}}
-        {{--</p>--}}
-        {{--</div>--}}
-        {{--</li>--}}
-        {{--@endforeach--}}
-        {{--</ul>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-
-
         <div class="swiper-video swiper-container">
             <div class="swiper-wrapper">
                 @foreach($children_works as $work)
@@ -109,34 +84,6 @@
                 </div>
             </div>
         </div>
-
-        {{--<div class="container marketing">--}}
-
-    <!-- Three columns of text below the carousel -->
-        {{--<div class="row">--}}
-        {{--<div class="col-lg-4">--}}
-        {{--<div class="col-lg-4">--}}
-        {{--<img class="rounded-circle"--}}
-        {{--src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="--}}
-        {{--width="140" height="140">--}}
-        {{--<p>Орловская Нина Константиновна</p>--}}
-        {{--</div><!-- --}}
-        {{--</div><!-- /.col-lg-4 -->--}}
-        {{--<div class="col-lg-4">--}}
-        {{--<img class="rounded-circle"--}}
-        {{--src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="--}}
-        {{--width="140" height="140">--}}
-        {{--<p>Орловская Нина Константиновна</p>--}}
-        {{--</div><!-- /.col-lg-4 -->--}}
-        {{--<div class="col-lg-4">--}}
-        {{--<img class="rounded-circle"--}}
-        {{--src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="--}}
-        {{--width="140" height="140">--}}
-        {{--<p>Красова Мария</p>--}}
-        {{--</div><!-- /.col-lg-4 -->--}}
-        {{--</div><!-- /.row -->--}}
-
-        {{--</div>--}}
         <div class="alert alert-primary center" role="alert">
             <strong>Внимание, </strong> нужны волонтеры!
         </div>
