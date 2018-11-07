@@ -68,6 +68,10 @@
 
         <div class="container marketing">
 
+            <div>
+                <h2 class="center display-4">Руководители проэкта</h2>
+            </div>
+
         <div class="executive">
             <div class="container">
                 <div class="executive__list">
