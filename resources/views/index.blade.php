@@ -89,7 +89,7 @@
             <strong>Внимание, </strong> нужны волонтеры!
         </div>
 
-    </section>
+        </div>
 
 
     <div class="overlay"></div>
