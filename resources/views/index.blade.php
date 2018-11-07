@@ -75,23 +75,11 @@
     </div>
 
     </div>
+
+
+    <div class="overlay"></div>
+
 @endsection
 @push('footer_scripts')
     <script src="{{ asset('js/index-page.js') }}"></script>
-    <script>
-        var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            loop: true,
-            autoplay: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-    </script>
 @endpush

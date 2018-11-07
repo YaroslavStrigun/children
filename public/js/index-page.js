@@ -62,6 +62,32 @@ $(document).ready(function () {
         });
     }
 
+    $('.burger-menu').on('click', function() {
+       $('.slide-menu').toggleClass('open');
+       $('.overlay').show();
+       $('body').addClass('hidden');
+    });
+    $('.overlay').on('click', function () {
+        $('.slide-menu').removeClass('open');
+        $(this).hide();
+        $('body').removeClass('hidden');
+    });
+
+    var mainSlider = new Swiper('.main-slider', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
 });
 //a simple function to click next link
 //a timer will call this function, and the rotation will begin
