@@ -59,6 +59,7 @@
             <a class="display-4" href="#" style="text-decoration: none">Пожертвовать</a>
         </button>
 
+        <div class="container marketing">
 
         <div class="executive">
             <div class="container">

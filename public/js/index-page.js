@@ -92,6 +92,14 @@ $(document).ready(function () {
             prevEl: '.swiper-button-prev',
         },
     });
+    var reviewSlider = new Swiper('.review__slider', {
+        slidesPerView: 1,
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
 
 });
 //a simple function to click next link
