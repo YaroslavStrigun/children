@@ -3,11 +3,14 @@
 
     <section class="main-slider swiper-container">
         <div class="swiper-wrapper">
-            @foreach($children as $child)
-                @if(!is_null($child->getAttachment('main')->path))
+            @foreach($children_works as $work)
+                @if(!is_null($work->getAttachment('main')->path))
                     <div class="swiper-slide">
-                        <img class="main-slider__image" src="{{ Voyager::image($child->getAttachment('main')->path) }}">
-                        <div class="main-slider__text">{!! $child->short_description !!}</div>
+                        <img class="main-slider__image" src="{{ Voyager::image($work->getAttachment('main')->path) }}">
+                        <div class="main-slider__text">
+                            {!! $work->short_description !!}
+                            <a href="{{ route('post', ['slug' => $work->category->slug, 'id' => $work->id]) }}">Подробнее</a>
+                        </div>
                     </div>
                 @endif
             @endforeach
@@ -23,7 +26,7 @@
                 <div class="swiper-wrapper">
                     @foreach($sayings as $saying)
                         <div class="review__slide swiper-slide">
-                            <div class="review__text">
+                            <div class"review__text">
                                 {!! strip_tags($saying->text ) !!}
                             </div>
 
@@ -38,34 +41,12 @@
             </div>
         </div>
     </section>
-        {{--<div id="carousel">--}}
-        {{--<div class="btn-bar">--}}
-        {{--<div id="buttons"><a id="prev" href="#"><</a><a id="next" href="#">></a></div>--}}
-        {{--</div>--}}
-        {{--<div id="slides">--}}
-        {{--<ul>--}}
-        {{--@foreach($sayings as $saying)--}}
-        {{--<li class="slide">--}}
-        {{--<div class="quoteContainer">--}}
-        {{--<p class="quote-phrase"><span class="quote-marks">"</span>--}}
-        {{--{!! strip_tags($saying->text ) !!}--}}
-        {{--</p>--}}
-        {{--</div>--}}
-        {{--<div class="authorContainer">--}}
-        {{--<p class="quote-author">--}}
-        {{--{{ $saying->author }}--}}
-        {{--</p>--}}
-        {{--</div>--}}
-        {{--</li>--}}
-        {{--@endforeach--}}
-        {{--</ul>--}}
-        {{--</div>--}}
-        {{--</div>--}}
+<h3 class="display-4 center">Они ждут Вашей помощи</h3>
         <button type="button" class="btn pay-button center-block">
             <a class="display-4" href="#" style="text-decoration: none">Пожертвовать</a>
         </button>
 
-
+    <h3 class="display-4 center">Руководители проэкта</h3>
         <div class="executive">
             <div class="container">
                 <div class="executive__list">
@@ -79,13 +60,13 @@
                         <img class="rounded-circle"
                              src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
                              width="140" height="140">
-                        <p class="executive__title">Стригун Ярослав</p>
+                        <p class="executive__title">Орловская Нина</p>
                     </div>
                     <div class="executive__item">
                         <img class="rounded-circle"
                              src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
                              width="140" height="140">
-                        <p class="executive__title">Стригун Ярослав</p>
+                        <p class="executive__title">Красова Мария</p>
                     </div>
                 </div>
             </div>

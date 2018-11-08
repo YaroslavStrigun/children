@@ -14,7 +14,9 @@ class HomeController extends Controller
 
         $children = Category::where('slug', 'waiting-help')->first()->posts;
 
-        return view('index', compact('sayings', 'children'));
+        $children_works = Category::where('slug', 'сhild-volunteers')->first()->posts;
+
+        return view('index', compact('sayings', 'children', 'children_works'));
     }
 
 }
