@@ -18,6 +18,7 @@
 
 <div class="slide-menu">
     <div class="slide-menu__wrapper">
+        <span class="close" href="#"></span>
         <ul class="slide-menu__list">
             @foreach($categories as $category)
             <li class="slide-menu__item">

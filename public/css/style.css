@@ -68,7 +68,7 @@ body {
 
 header {
     position: relative;
-    z-index: 10;
+    z-index: 5;
     background: #ffffff;
     box-shadow: 0 0 5px rgba(0,0,0,.2);
     padding: 25px 15px;
@@ -103,7 +103,7 @@ header {
     background: #ffffff;
     padding: 30px;
     transform: translateX(-100%);
-    top: 80px;
+    top: 0;
     transition: .3s ease;
     z-index: 6;
 }
@@ -154,6 +154,39 @@ header {
 }
 .overlay.show {
     display: block;
+}
+
+.close  {
+    display: block;
+    position: relative;
+    right: 0;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    transition: transform .25s ease-in-out;
+    transform: scale(.7);
+}
+.close:after, .close:before {
+    content: "";
+    position: absolute;
+    display: block;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 32px;
+    height: 0;
+    border-top: 3px solid #232323;
+    transform-origin: center;
+    transition: all .25s ease-in-out;
+}
+.close:before {
+    transform: rotate(45deg);
+}
+.close:after {
+    transform: rotate(-45deg);
 }
 /*slide-menu*/
 
