@@ -48,8 +48,29 @@
             <a class="display-4" href="#" style="text-decoration: none">Пожертвовать</a>
         </button>
 
+    <section class="children-slider swiper-container">
+        <div class="swiper-wrapper">
+            @foreach($children as $child)
+                @if(!is_null($child->getAttachment('main')->path))
+                    <div class="swiper-slide">
+                        <img class="child-slider__image" src="{{ Voyager::image($child->getAttachment('main')->path) }}">
+                        <div class="child-slider__text">
+                            <div class="child-slider__text-container">
+                                {!! $child->short_description !!}
+                                <a class="read-more child-slider__link" href="{{ route('post', ['slug' => $child->category->slug, 'id' => $child->id]) }}">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+            @endforeach
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </section>
+
     <h3 class="display-4 center">Руководители проэкта</h3>
-        <div class="executive">
+        <section class="executive">
             <div class="container">
                 <div class="executive__list">
                     <div class="executive__item">
@@ -72,40 +93,12 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        {{--<div class="container marketing">--}}
-
-    <!-- Three columns of text below the carousel -->
-        {{--<div class="row">--}}
-        {{--<div class="col-lg-4">--}}
-        {{--<div class="col-lg-4">--}}
-        {{--<img class="rounded-circle"--}}
-        {{--src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="--}}
-        {{--width="140" height="140">--}}
-        {{--<p>Орловская Нина Константиновна</p>--}}
-        {{--</div><!-- --}}
-        {{--</div><!-- /.col-lg-4 -->--}}
-        {{--<div class="col-lg-4">--}}
-        {{--<img class="rounded-circle"--}}
-        {{--src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="--}}
-        {{--width="140" height="140">--}}
-        {{--<p>Орловская Нина Константиновна</p>--}}
-        {{--</div><!-- /.col-lg-4 -->--}}
-        {{--<div class="col-lg-4">--}}
-        {{--<img class="rounded-circle"--}}
-        {{--src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="--}}
-        {{--width="140" height="140">--}}
-        {{--<p>Красова Мария</p>--}}
-        {{--</div><!-- /.col-lg-4 -->--}}
-        {{--</div><!-- /.row -->--}}
-
-        {{--</div>--}}
+    </section>
+    <div class="container">
         <div class="alert alert-primary center" role="alert">
             <strong>Внимание, </strong> нужны волонтеры!
         </div>
-
-    </section>
+    </div>
 
 
     <div class="overlay"></div>
