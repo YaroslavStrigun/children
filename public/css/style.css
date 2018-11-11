@@ -224,9 +224,6 @@ footer {
 
     background: #232122;
 }
-a {
-    text-decoration: none;
-}
 
 .social_head {
     color: #fff;
@@ -271,26 +268,6 @@ a {
     -o-transition: all .3s ease;
     transition: all .3s ease;
 }
-.form_submit .fa-caret-right {
-    font-size: 20px;
-}
-.form_submit:hover {
-    background-color: #eec100;
-}
-.fa-caret-right:before {
-    content: "\f0da";
-}
-.fa-caret-right {
-    box-sizing: border-box;
-}
-.fa {
-    display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
 
 .container-fluid {
     width: 100%;
@@ -318,6 +295,15 @@ a {
     color: #ffe91a;
 }
 
+.social__item {
+    display: inline-block;
+}
+.social__item:not(:last-child) {
+    margin-right: 15px;
+}
+.social__link {
+    color: #ffffff;
+}
 
 .footer__list a {
     color: #fff;
@@ -454,10 +440,30 @@ a#prev:hover, a#next:hover {
     display: flex;
     align-items: center;
     width: 40%;
-    background: rgba(0,0,0,.5);
-    color: #fff;
+}
+.main-slider__text-container {
+    position: relative;
+    max-height: 65%;
+    height: 100%;
+    overflow: hidden;
+}
+.main-slider__text-container p {
+    position: relative;
+    height: 100%;
+}
+.main-slider__text-container p:before {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to top, #fff, rgba(255,255,255, 0));
 }
 
+.main-slider__link {
+    position: absolute;
+}
 /*main slider*/
 
 /*executives*/

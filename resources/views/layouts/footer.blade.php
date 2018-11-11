@@ -17,7 +17,6 @@
                 </ul>
             </div>
             <div class="footer__item footer__list menu_light">
-
                 <ul class="menu_low">
                     @foreach($pages as $page)
                     <li class="menu-item">
@@ -36,6 +35,19 @@
                         <i class="fa fa-caret-right" aria-hidden="true"></i>
                     </button>
                 </form>
+                <ul class="social">
+                    <li class="social__item">
+                        <a class="social__link icon-youtube-play" href="https://www.youtube.com/">
+                        </a>
+                    </li>
+                    <li class="social__item">
+                        <a class="social__link facebook icon-facebook" href="https://www.facebook.com/"></a>
+                    </li>
+                    <li class="social__item">
+                        <a class="social__link icon-instagram" href="https://www.instagram.com/">
+                        </a>
+                    </li>
+                </ul>
 
             </div>
         </div>

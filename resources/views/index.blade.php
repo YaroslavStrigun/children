@@ -8,8 +8,10 @@
                     <div class="swiper-slide">
                         <img class="main-slider__image" src="{{ Voyager::image($work->getAttachment('main')->path) }}">
                         <div class="main-slider__text">
-                            {!! $work->short_description !!}
-                            <a href="{{ route('post', ['slug' => $work->category->slug, 'id' => $work->id]) }}">Подробнее</a>
+                            <div class="main-slider__text-container">
+                                {!! $work->short_description !!}
+                                <a class="read-more main-slider__link" href="{{ route('post', ['slug' => $work->category->slug, 'id' => $work->id]) }}">Подробнее</a>
+                            </div>
                         </div>
                     </div>
                 @endif
@@ -26,7 +28,7 @@
                 <div class="swiper-wrapper">
                     @foreach($sayings as $saying)
                         <div class="review__slide swiper-slide">
-                            <div class"review__text">
+                            <div class="review__text">
                                 {!! strip_tags($saying->text ) !!}
                             </div>
 

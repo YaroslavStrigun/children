@@ -66,7 +66,7 @@ $(document).ready(function () {
     var mainSlider = new Swiper('.main-slider', {
         slidesPerView: 1,
         loop: true,
-        autoplay: true,
+        // autoplay: true,
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
