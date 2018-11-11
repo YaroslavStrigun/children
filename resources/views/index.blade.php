@@ -44,10 +44,6 @@
         </div>
     </section>
 <h3 class="display-4 center">Они ждут Вашей помощи</h3>
-        <button type="button" class="btn pay-button center-block">
-            <a class="display-4" href="#" style="text-decoration: none">Пожертвовать</a>
-        </button>
-
     <section class="children-slider swiper-container">
         <div class="swiper-wrapper">
             @foreach($children as $child)
@@ -68,6 +64,10 @@
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
     </section>
+
+    <button type="button" class="btn pay-button center-block">
+        <a class="display-4" href="#" style="text-decoration: none">Пожертвовать</a>
+    </button>
 
     <h3 class="display-4 center">Руководители проэкта</h3>
         <section class="executive">
