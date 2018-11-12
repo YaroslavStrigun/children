@@ -55,6 +55,10 @@ body {
     font-size: 16px;
 }
 
+section {
+    margin-bottom: 100px;
+}
+
 .container {
     max-width: 1200px;
     padding: 0 15px;
@@ -78,6 +82,13 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.main-title {
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 
@@ -468,7 +479,7 @@ a#prev:hover, a#next:hover {
 
 /*executives*/
 .executive__list {
-    margin: 0 -10px;
+    margin: 0 -10px 30px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -480,6 +491,15 @@ a#prev:hover, a#next:hover {
 .executive__title {
     margin-top: 10px;
     font-size: 18px;
+}
+
+.executive__attention {
+    text-align: center;
+    padding: 16px;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+    border-radius: 5px;
 }
 /*executives*/
 
@@ -504,8 +524,30 @@ a#prev:hover, a#next:hover {
     text-align: right;
 }
 /*review*/
-
-
+.children-slider {
+    margin-bottom: 50px;
+}
+.children-slider .main-slider__text {
+    right: auto;
+    left: 0;
+}
+.children-slider .main-slider__image {
+    left: auto;
+    right: 0;
+}
+.donate-link-wrap {
+    text-align: center;
+}
+.donate-link {
+    display: inline-block;
+    padding: 16px 50px;
+    color: #004085;
+    background-color: #cce5ff;
+    border: 2px solid #b8daff;
+    font-size: 20px;
+    font-weight: 500;
+    transition: .2s ease;
+}
 
 
 .center {

@@ -10,7 +10,8 @@
                         <div class="main-slider__text">
                             <div class="main-slider__text-container">
                                 {!! $work->short_description !!}
-                                <a class="read-more main-slider__link" href="{{ route('post', ['slug' => $work->category->slug, 'id' => $work->id]) }}">Подробнее</a>
+                                <a class="read-more main-slider__link"
+                                   href="{{ route('post', ['slug' => $work->category->slug, 'id' => $work->id]) }}">Подробнее</a>
                             </div>
                         </div>
                     </div>
@@ -33,7 +34,7 @@
                             </div>
 
                             <p class="review__author">
-                            {{ $saying->author }}
+                                {{ $saying->author }}
                             </p>
                         </div>
                     @endforeach
@@ -43,35 +44,41 @@
             </div>
         </div>
     </section>
-<h3 class="display-4 center">Они ждут Вашей помощи</h3>
-    <section class="children-slider swiper-container">
-        <div class="swiper-wrapper">
-            @foreach($children as $child)
-                @if(!is_null($child->getAttachment('main')->path))
-                    <div class="swiper-slide">
-                        <img class="child-slider__image" src="{{ Voyager::image($child->getAttachment('main')->path) }}">
-                        <div class="child-slider__text">
-                            <div class="child-slider__text-container">
-                                {!! $child->short_description !!}
-                                <a class="read-more child-slider__link" href="{{ route('post', ['slug' => $child->category->slug, 'id' => $child->id]) }}">Подробнее</a>
+    <section class="children">
+        <h2 class="main-title">Они ждут Вашей помощи</h2>
+        <div class="main-slider children-slider swiper-container">
+            <div class="swiper-wrapper">
+                @foreach($children as $child)
+                    @if(!is_null($child->getAttachment('main')->path))
+                        <div class="swiper-slide">
+                            <div class="main-slider__text">
+                                <div class="main-slider__text-container">
+                                    {!! $child->short_description !!}
+                                    <a class="read-more child-slider__link"
+                                       href="{{ route('post', ['slug' => $child->category->slug, 'id' => $child->id]) }}">Подробнее</a>
+                                </div>
                             </div>
+                            <img class="main-slider__image"
+                                 src="{{ Voyager::image($child->getAttachment('main')->path) }}">
                         </div>
-                    </div>
-                @endif
-            @endforeach
+                    @endif
+                @endforeach
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        <div class="donate-link-wrap">
+            <a class="donate-link" href="#">Пожертвовать</a>
+        </div>
+
     </section>
 
-    <button type="button" class="btn pay-button center-block">
-        <a class="display-4" href="#" style="text-decoration: none">Пожертвовать</a>
-    </button>
 
-    <h3 class="display-4 center">Руководители проэкта</h3>
         <section class="executive">
             <div class="container">
+                <h2 class="main-title">Руководители проэкта</h2>
+
                 <div class="executive__list">
                     <div class="executive__item">
                         <img class="rounded-circle"
@@ -92,18 +99,16 @@
                         <p class="executive__title">Красова Мария</p>
                     </div>
                 </div>
+
+                <div class="executive__attention" role="alert">
+                    <strong>Внимание, </strong> нужны волонтеры!
+                </div>
             </div>
-    </section>
-    <div class="container">
-        <div class="alert alert-primary center" role="alert">
-            <strong>Внимание, </strong> нужны волонтеры!
-        </div>
-    </div>
+        </section>
 
+        <div class="overlay"></div>
 
-    <div class="overlay"></div>
-
-@endsection
-@push('footer_scripts')
-    <script src="{{ asset('js/index-page.js') }}"></script>
-@endpush
+        @endsection
+        @push('footer_scripts')
+            <script src="{{ asset('js/index-page.js') }}"></script>
+    @endpush
