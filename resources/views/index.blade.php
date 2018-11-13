@@ -10,9 +10,9 @@
                         <div class="main-slider__text">
                             <div class="main-slider__text-container">
                                 {!! $work->short_description !!}
-                                <a class="read-more main-slider__link"
-                                   href="{{ route('post', ['slug' => $work->category->slug, 'id' => $work->id]) }}">Подробнее</a>
                             </div>
+                            <a class="read-more main-slider__link"
+                               href="{{ route('post', ['slug' => $work->category->slug, 'id' => $work->id]) }}">Подробнее</a>
                         </div>
                     </div>
                 @endif
@@ -54,9 +54,9 @@
                             <div class="main-slider__text">
                                 <div class="main-slider__text-container">
                                     {!! $child->short_description !!}
-                                    <a class="read-more child-slider__link"
-                                       href="{{ route('post', ['slug' => $child->category->slug, 'id' => $child->id]) }}">Подробнее</a>
                                 </div>
+                                <a class="read-more child-slider__link"
+                                   href="{{ route('post', ['slug' => $child->category->slug, 'id' => $child->id]) }}">Подробнее</a>
                             </div>
                             <img class="main-slider__image"
                                  src="{{ Voyager::image($child->getAttachment('main')->path) }}">
