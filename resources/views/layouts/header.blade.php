@@ -11,6 +11,7 @@
             </a>
             <div class="header-contact">
                 <a class="header-contact__link" href="tel:+380935100759">(093) 510-07-59</a>
+                <p class="header-contact__link">yastrigun@ukr.net</p>
             </div>
         </div>
     </div>

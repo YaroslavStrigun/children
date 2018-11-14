@@ -8,7 +8,7 @@
                 <div class="featurette-heading">
                 <a class="post-title h3" href="{{ route('post', ['slug' => $category->slug, 'id' => $post->id]) }}">{{$post->title}}</a>
                 {!! $post->short_description !!}
-                <a href="{{ route('post', ['slug' => $category->slug, 'id' => $post->id]) }}">Детальніше</a>
+                <a href="{{ route('post', ['slug' => $category->slug, 'id' => $post->id]) }}">Подробнее</a>
                 </div>
             </div>
             <div class="main-attachment col-md-5">
