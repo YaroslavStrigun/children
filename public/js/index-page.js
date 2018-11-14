@@ -86,24 +86,21 @@ $(document).ready(function () {
         },
     });
 
-    var childrenSlider = new Swiper('.children-slider', {
-        slidesPerView: 1,
-        loop: true,
-        // autoplay: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
+    // var childrenSlider = new Swiper('.children-slider', {
+    //     slidesPerView: 1,
+    //     loop: true,
+    //     // autoplay: true,
+    //     pagination: {
+    //         el: '.swiper-pagination',
+    //         clickable: true,
+    //     },
+    //     navigation: {
+    //         nextEl: '.swiper-button-next',
+    //         prevEl: '.swiper-button-prev',
+    //     },
+    // });
 
 });
 //a simple function to click next link
 //a timer will call this function, and the rotation will begin
 
-function rotate() {
-    $('#next').click();
-}
