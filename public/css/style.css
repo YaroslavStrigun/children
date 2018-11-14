@@ -579,5 +579,8 @@ a#prev:hover, a#next:hover {
     color: #0c0c0c;
     text-decoration: none;!important;
 }
+.pay-button a:hover {
+    color: #0c0c0c;
+}
 
 

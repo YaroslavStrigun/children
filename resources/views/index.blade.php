@@ -69,8 +69,14 @@
             <div class="swiper-button-prev"></div>
         </div>
         <div class="donate-link-wrap">
-            <a class="donate-link" href="#">Пожертвовать</a>
+            {{--<a class="donate-link" href="#">Пожертвовать</a>--}}
+
+            <button type="button" class="btn pay-button center-block">
+                <a class="display-4" href="#" style="text-decoration: none">Пожертвовать</a>
+            </button>
         </div>
+
+
 
     </section>
 
