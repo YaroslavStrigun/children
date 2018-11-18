@@ -72,7 +72,7 @@
             {{--<a class="donate-link" href="#">Пожертвовать</a>--}}
 
             <button type="button" class="btn pay-button center-block">
-                <a class="display-4" href="#" style="text-decoration: none">Пожертвовать</a>
+                <a class="display-4" href="{{ route('page', ['slug' => 'how-to-help'])}}" style="text-decoration: none">Пожертвовать</a>
             </button>
         </div>
 
@@ -88,19 +88,19 @@
                 <div class="executive__list">
                     <div class="executive__item">
                         <img class="rounded-circle"
-                             src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                             src="{{ Voyager::image(setting('site.organisator_yaroslav')) }}"
                              width="140" height="140">
                         <p class="executive__title">Стригун Ярослав</p>
                     </div>
                     <div class="executive__item">
                         <img class="rounded-circle"
-                             src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                             src="{{ Voyager::image(setting('site.organisator_nina')) }}"
                              width="140" height="140">
                         <p class="executive__title">Орловская Нина</p>
                     </div>
                     <div class="executive__item">
                         <img class="rounded-circle"
-                             src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                             src="{{ Voyager::image(setting('site.organisator_maria')) }}"
                              width="140" height="140">
                         <p class="executive__title">Красова Мария</p>
                     </div>
@@ -111,6 +111,24 @@
                 </div>
             </div>
         </section>
+    <div class="container">
+        <h2 class="main-title">Вы можете обратиться к нам за помощью!</h2>
+    <form class="email-form">
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Email</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Сообщение</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+        </div>
+        <div class="donate-link-wrap">
+            <button type="submit" class="btn pay-button center-block">
+                <p class="display-4" style="text-decoration: none">Отправить</p>
+            </button>
+        </div>
+    </form>
+    </div>
 
         <div class="overlay"></div>
 
