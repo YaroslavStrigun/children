@@ -113,14 +113,21 @@
         </section>
     <div class="container">
         <h2 class="main-title">Вы можете обратиться к нам за помощью!</h2>
-    <form class="email-form">
+        @include('layouts.errors')
+        @include('layouts.messages')
+    <form class="email-form" method="post" action="{{ route('send') }}">
+        @csrf
         <div class="form-group">
             <label for="exampleFormControlInput1">Email</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            <input name="email" type="email" class="form-control" placeholder="name@example.com" required value="{{ old('email') }}">
+        </div>
+        <div class="form-group">
+            <label for="">Номер телефона</label>
+            <input name="phone" type="text" class="form-control" placeholder="+380933333333" value="{{ old('phone') }}">
         </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Сообщение</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+            <textarea name="text" class="form-control" rows="5" required>{{ old('text') }}</textarea>
         </div>
         <div class="donate-link-wrap">
             <button type="submit" class="btn pay-button center-block">

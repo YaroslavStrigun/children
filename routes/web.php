@@ -19,6 +19,8 @@ Route::get('/page/{slug}', 'PostController@pageBySlug')->name('page');
 
 Route::get('/category/{slug}/post/{id}', 'PostController@getPost')->name('post');
 
+Route::post('/send', 'MailController@send')->name('send');
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
