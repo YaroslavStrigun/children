@@ -13,7 +13,7 @@ class MailController extends Controller
     {
         $message = new HelpMail($request->all(), 'Вопрос с сайта Ангелы Добра');
 
-        Mail::to(setting('admin_mail', 'yastrigun@mail.com'))->send($message);
+        Mail::to(setting('site.admin_mail', 'yastrigun@mail.com'))->send($message);
 
         return back()->with('success', ['Спасибо! Ваше сообщение было успешно отправлено.']);
 
