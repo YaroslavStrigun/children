@@ -23,14 +23,15 @@ class PaymentController extends Controller
                 $private_key
                 , 1 ));
 
-            if ($data_signature == $signature) {
-               $status = PaymentService::savePaymentData($data);
+            if ($data_signature == $signature && !empty($data)) {
+               $status = PaymentService::saveCheckout($data);
             } else {
                 $status = 'Ошибка сервера, попробуйте позже.';
             }
 
-            return $status;
+            session()->flash('msg', $status);
 
+            return redirect()->route('');
         }
     }
 }

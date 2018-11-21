@@ -4,6 +4,7 @@ namespace App\Services;
 
 
 use App\Http\Controllers\Controller;
+use App\Models\Checkout;
 
 abstract class PaymentService extends Controller
 {
@@ -32,12 +33,23 @@ abstract class PaymentService extends Controller
 
     }
 
-    static public function savePaymentData($data)
+    static public function saveCheckout($data)
     {
         $decode_data = base64_decode($data);
         $data_array = json_decode($decode_data, true);
-        dd($data_array);
 
+        $checkout = Checkout::create([
+            'amount' => $data_array['amount'],
+            'currency' => $data_array['currency'],
+            'description' => $data_array['description'],
+            'order_id' => $data_array['order_id'],
+            'status' => $data_array['status'],
+            'data' => $data_array
+        ]);
+
+        $status = $data_array['status'];
+
+        return $status;
     }
 
 }
