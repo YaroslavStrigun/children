@@ -31,7 +31,7 @@ class PaymentController extends Controller
 
             session()->flash('msg', $status);
 
-            return redirect()->route('');
+            return redirect()->route('page', ['slug' => 'how-to-help']);
         }
     }
 }

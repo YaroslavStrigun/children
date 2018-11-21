@@ -11,11 +11,6 @@
 |
 */
 
-Route::get('/test', function () {
-    $form = \App\Services\PaymentService::getPaymentWidget();
-    echo $form;
-});
-
 Route::post('/payment/save-data', 'PaymentController@savePaymentData')->name('save.payment.data');
 
 Route::get('/', 'HomeController@index')->name('index');
