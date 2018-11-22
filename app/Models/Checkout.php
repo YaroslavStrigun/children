@@ -12,9 +12,4 @@ class Checkout extends Model
     {
         $this->attributes['data'] = json_encode($value, true);
     }
-
-    public function getDataAttribute($value)
-    {
-        return json_decode($value, true);
-    }
 }
