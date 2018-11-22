@@ -26,7 +26,7 @@ class PaymentController extends Controller
             if ($data_signature == $signature && !empty($data)) {
                $status = PaymentService::saveCheckout($data);
             } else {
-                $status = 'Ошибка сервера, попробуйте позже.';
+                $status = config('liqpay.statuses.failure');
             }
 
             session()->flash('msg', $status);

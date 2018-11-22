@@ -48,6 +48,7 @@ abstract class PaymentService extends Controller
         ]);
 
         $status = $data_array['status'];
+        $status = config("liqpay.statuses.$status", '');
 
         return $status;
     }
