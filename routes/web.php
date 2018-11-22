@@ -11,6 +11,8 @@
 |
 */
 
+Route::post('/payment/save-data', 'PaymentController@savePaymentData')->name('save.payment.data');
+
 Route::get('/', 'HomeController@index')->name('index');
 
 Route::get('/category/{slug}/posts', 'PostController@postsByCategory')->name('posts.by.category');

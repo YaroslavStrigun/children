@@ -10,8 +10,8 @@
                 <img src="{{ Voyager::image(setting('site.logo')) }}">
             </a>
             <div class="header-contact">
-                <a class="header-contact__link" href="tel:+380935100759">(093) 510-07-59</a>
-                <p class="header-contact__link">yastrigun@ukr.net</p>
+                <a class="header-contact__link" href="tel:{{ setting('site.admin_phone', '+380507000155') }}">{{ setting('site.admin_phone', '+380507000155') }}</a>
+                <p class="header-contact__link">{{ setting('site.admin_mail', 'yastrigun@mail.com') }}</p>
             </div>
         </div>
     </div>

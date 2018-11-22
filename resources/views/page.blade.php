@@ -19,6 +19,19 @@
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
+        @if(request()->slug == 'how-to-help')
+            <div class="center">
+                @if(Session::has('msg'))
+                    <div class="alert alert-success">
+                        <p>Спасибо!</p>
+                        <p>
+                            Статус оплаты: {!! Session::get("msg") !!}
+                        </p>
+                    </div>
+                @endif
+                {!! \App\Services\PaymentService::getPaymentWidget() !!}
+            </div>
+        @endif
     </div>
 @endsection
 @push('footer_scripts')
