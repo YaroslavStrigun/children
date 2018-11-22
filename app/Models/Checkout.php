@@ -12,4 +12,12 @@ class Checkout extends Model
     {
         $this->attributes['data'] = json_encode($value, true);
     }
+
+    public function getStatus()
+    {
+        $data = json_decode($this->data, true);
+        $status = $data['status'] ?? '';
+
+        return config("liqpay.statuses.$status", '');
+    }
 }
