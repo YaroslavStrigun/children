@@ -2,8 +2,8 @@
     <div class="">
         <div class="footer-wrapper">
             <div class="footer__item footer__logo">
-                <a class="logotype" href="{{ route('index') }}">
-                    Поддержка
+                <a href="/">
+                    <img class="rounded-circle" src="{{ Voyager::image(setting('site.logo')) }}">
                 </a>
             </div>
             <div class="footer__item footer__list menu_medium">
@@ -17,7 +17,6 @@
                 </ul>
             </div>
             <div class="footer__item footer__list menu_light">
-
                 <ul class="menu_low">
                     @foreach($pages as $page)
                     <li class="menu-item">
@@ -27,15 +26,28 @@
                 </ul>
             </div>
             <div class="footer__item footer__social">
-                <p class="social_head">Вопросы</p>
+                {{--<p class="social_head">Вопросы</p>--}}
 
-                <form class="social_form" method="post" action="">
-                    <input class="form_text" type="email" name="ne" placeholder="Введите Ваш e-mail" required="">
+                {{--<form class="social_form" method="post" action="">--}}
+                    {{--<input class="form_text" type="email" name="ne" placeholder="Введите Ваш e-mail" required="">--}}
 
-                    <button class="form_submit" type="submit" value="">
-                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                    </button>
-                </form>
+                    {{--<button class="form_submit" type="submit" value="">--}}
+                        {{--<i class="fa fa-caret-right" aria-hidden="true"></i>--}}
+                    {{--</button>--}}
+                {{--</form>--}}
+                <ul class="social">
+                    <li class="social__item">
+                        <a class="social__link icon-youtube-play" href="{{ setting('site.youtube') }}">
+                        </a>
+                    </li>
+                    <li class="social__item">
+                        <a class="social__link facebook icon-facebook" href="{{ setting('site.facebook') }}"></a>
+                    </li>
+                    <li class="social__item">
+                        <a class="social__link icon-instagram" href="{{ setting('site.instagram') }}">
+                        </a>
+                    </li>
+                </ul>
 
             </div>
         </div>

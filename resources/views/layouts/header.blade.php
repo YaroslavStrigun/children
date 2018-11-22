@@ -10,7 +10,8 @@
                 <img src="{{ Voyager::image(setting('site.logo')) }}">
             </a>
             <div class="header-contact">
-                <a class="header-contact__link" href="tel:+380935100759">(093) 510-07-59</a>
+                <a class="header-contact__link" href="tel:{{ setting('site.admin_phone', '+380507000155') }}">{{ setting('site.admin_phone', '+380507000155') }}</a>
+                <p class="header-contact__link">{{ setting('site.admin_mail', 'yastrigun@mail.com') }}</p>
             </div>
         </div>
     </div>
@@ -18,6 +19,7 @@
 
 <div class="slide-menu">
     <div class="slide-menu__wrapper">
+        <span class="close" href="#"></span>
         <ul class="slide-menu__list">
             @foreach($categories as $category)
             <li class="slide-menu__item">

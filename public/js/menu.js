@@ -1,13 +1,18 @@
 $(document).ready(function () {
-    $('.burger-menu').on('click', function() {
-        $('.slide-menu').toggleClass('open');
-        $('.overlay').toggleClass('show');
+    $('.burger-menu').on('click', function () {
+        $('.slide-menu').addClass('open');
+        $('.overlay').addClass('show');
         $('body').addClass('hidden');
     });
     $('.overlay').on('click', function () {
         $('.slide-menu').removeClass('open');
-        $(this).hide();
+        $(this).removeClass('show');
         $('body').removeClass('hidden');
+    });
+    $('.close').on('click', function () {
+        $('.slide-menu').removeClass('open');
+        $('body').removeClass('hidden');
+        $('.overlay').removeClass('show');
     });
 
 });

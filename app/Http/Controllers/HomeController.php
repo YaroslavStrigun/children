@@ -13,6 +13,7 @@ class HomeController extends Controller
         $sayings = Saying::all();
 
         $children = Category::where('slug', 'waiting-help')->first()->posts;
+
         $children_works = Category::where('slug', 'сhild-volunteers')->first()->posts;
 
         return view('index', compact('sayings', 'children', 'children_works'));

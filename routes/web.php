@@ -11,6 +11,8 @@
 |
 */
 
+Route::post('/payment/save-data', 'PaymentController@savePaymentData')->name('save.payment.data');
+
 Route::get('/', 'HomeController@index')->name('index');
 
 Route::get('/category/{slug}/posts', 'PostController@postsByCategory')->name('posts.by.category');
@@ -18,6 +20,8 @@ Route::get('/category/{slug}/posts', 'PostController@postsByCategory')->name('po
 Route::get('/page/{slug}', 'PostController@pageBySlug')->name('page');
 
 Route::get('/category/{slug}/post/{id}', 'PostController@getPost')->name('post');
+
+Route::post('/send', 'MailController@send')->name('send');
 
 
 Route::group(['prefix' => 'admin'], function () {

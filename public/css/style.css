@@ -55,11 +55,18 @@ body {
     font-size: 16px;
 }
 
+section {
+    margin-bottom: 100px;
+}
+
 .container {
     max-width: 1200px;
     padding: 0 15px;
     width: 100%;
     margin: 0 auto;
+}
+.content {
+    min-height: 80vh;
 }
 .hidden {
     overflow: hidden;
@@ -68,7 +75,7 @@ body {
 
 header {
     position: relative;
-    z-index: 10;
+    z-index: 5;
     background: #ffffff;
     box-shadow: 0 0 5px rgba(0,0,0,.2);
     padding: 25px 15px;
@@ -78,6 +85,13 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.main-title {
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 
@@ -103,7 +117,7 @@ header {
     background: #ffffff;
     padding: 30px;
     transform: translateX(-100%);
-    top: 80px;
+    top: 0;
     transition: .3s ease;
     z-index: 6;
 }
@@ -155,6 +169,39 @@ header {
 .overlay.show {
     display: block;
 }
+
+.close  {
+    display: block;
+    position: relative;
+    right: 0;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    transition: transform .25s ease-in-out;
+    transform: scale(.7);
+}
+.close:after, .close:before {
+    content: "";
+    position: absolute;
+    display: block;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 32px;
+    height: 0;
+    border-top: 3px solid #232323;
+    transform-origin: center;
+    transition: all .25s ease-in-out;
+}
+.close:before {
+    transform: rotate(45deg);
+}
+.close:after {
+    transform: rotate(-45deg);
+}
 /*slide-menu*/
 
 /*logo*/
@@ -190,9 +237,6 @@ footer {
     padding: 50px 0;
 
     background: #232122;
-}
-a {
-    text-decoration: none;
 }
 
 .social_head {
@@ -238,26 +282,6 @@ a {
     -o-transition: all .3s ease;
     transition: all .3s ease;
 }
-.form_submit .fa-caret-right {
-    font-size: 20px;
-}
-.form_submit:hover {
-    background-color: #eec100;
-}
-.fa-caret-right:before {
-    content: "\f0da";
-}
-.fa-caret-right {
-    box-sizing: border-box;
-}
-.fa {
-    display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
 
 .container-fluid {
     width: 100%;
@@ -285,6 +309,15 @@ a {
     color: #ffe91a;
 }
 
+.social__item {
+    display: inline-block;
+}
+.social__item:not(:last-child) {
+    margin-right: 15px;
+}
+.social__link {
+    color: #ffffff;
+}
 
 .footer__list a {
     color: #fff;
@@ -418,18 +451,35 @@ a#prev:hover, a#next:hover {
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    display: flex;
-    align-items: center;
+    /*display: flex;*/
+    /*align-items: center;*/
     width: 40%;
-    background: rgba(0,0,0,.5);
-    color: #fff;
+}
+.main-slider__text-container {
+    position: relative;
+    max-height: 65%;
+    height: 100%;
+    overflow: hidden;
+}
+.main-slider__text-container p {
+    position: relative;
+    height: 100%;
+}
+.main-slider__text-container p:before {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to top, #fff, rgba(255,255,255, 0));
 }
 
 /*main slider*/
 
 /*executives*/
 .executive__list {
-    margin: 0 -10px;
+    margin: 0 -10px 30px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -441,6 +491,15 @@ a#prev:hover, a#next:hover {
 .executive__title {
     margin-top: 10px;
     font-size: 18px;
+}
+
+.executive__attention {
+    text-align: center;
+    padding: 16px;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+    border-radius: 5px;
 }
 /*executives*/
 
@@ -465,8 +524,30 @@ a#prev:hover, a#next:hover {
     text-align: right;
 }
 /*review*/
-
-
+.children-slider {
+    margin-bottom: 50px;
+}
+.children-slider .main-slider__text {
+    right: auto;
+    left: 0;
+}
+.children-slider .main-slider__image {
+    left: auto;
+    right: 0;
+}
+.donate-link-wrap {
+    text-align: center;
+}
+.donate-link {
+    display: inline-block;
+    padding: 16px 50px;
+    color: #004085;
+    background-color: #cce5ff;
+    border: 2px solid #b8daff;
+    font-size: 20px;
+    font-weight: 500;
+    transition: .2s ease;
+}
 
 
 .center {
@@ -501,6 +582,20 @@ a#prev:hover, a#next:hover {
     color: #0c0c0c;
     text-decoration: none;!important;
 }
+.pay-button a:hover {
+    color: #0c0c0c;
+}
+
+.attachment-slider img {
+    width: 50%;!important;
+    display: block;
+    margin: 0 auto;
+}
+
+.email-form {
+    margin-bottom: 15px;
+}
+
 
 .swiper-video .swiper-slide {
     text-align: center;
