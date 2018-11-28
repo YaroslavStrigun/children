@@ -28,6 +28,9 @@
             @endforeach
         </ul>
         <ul class="slide-menu__list">
+            <li class="slide-menu__item">
+                <a id="help-link" class="slide-menu__link" href="{{ route('index') . '#help-title'}}">Обратиться за помощью</a>
+            </li>
             @foreach($pages as $page)
                 <li class="slide-menu__item">
                     <a class="slide-menu__link" href="{{ route('page', ['slug' => $page->slug])}}">{{ $page->name }}</a>

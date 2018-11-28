@@ -327,6 +327,19 @@ footer {
     transition: all .5s ease;
 }
 
+@media(max-width: 560px) {
+    .footer__item {
+        width: 100%;
+    }
+    .footer__logo a {
+        display: block;
+        text-align: center;
+    }
+    .header-contact__link {
+        display: none;
+    }
+}
+
 #carousel {
     position: relative;
     width:60%;
@@ -587,9 +600,12 @@ a#prev:hover, a#next:hover {
 }
 
 .attachment-slider img {
-    width: 50%;!important;
-    display: block;
-    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .email-form {
@@ -599,5 +615,9 @@ a#prev:hover, a#next:hover {
 
 .swiper-video .swiper-slide {
     text-align: center;
+}
+
+.attachment-slider .swiper-slide {
+    padding-bottom: 53%;
 }
 

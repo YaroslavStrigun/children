@@ -2,6 +2,7 @@
 @section('content')
     <div class="container">
     <h2 class="center display-4">{{ $category->name }}</h2>
+    <p>{!! $category->description !!}</p>
     @foreach($posts as $post)
         <div class="post row">
             <div class="short-description col-md-7">

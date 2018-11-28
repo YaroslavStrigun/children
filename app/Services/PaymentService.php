@@ -21,11 +21,10 @@ abstract class PaymentService extends Controller
 
         $html_form = $liqpay->cnb_form([
             'action' => 'paydonate',
-            'amount' => '50',
+            'amount' => '100',
             'currency' => 'UAH',
-            'description' => 'Благотворительное пожертвование для фонда "Поддержка"',
+            'description' => 'Благотворительня помощь для спасения детских жизней.',
             'version' => '3',
-            'sandbox' => 1,
             'result_url' => route('save.payment.data')
         ]);
 

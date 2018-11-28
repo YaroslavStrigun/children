@@ -20,5 +20,5 @@
 <div class="content">
     @yield('content')
 </div>
-
+<div class="overlay"></div>
 @include('layouts.footer')

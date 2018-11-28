@@ -112,7 +112,7 @@
             </div>
         </section>
     <div class="container">
-        <h2 class="main-title">Вы можете обратиться к нам за помощью!</h2>
+        <h2 id="help-title" class="main-title">Вы можете обратиться к нам за помощью!</h2>
         @include('layouts.errors')
         @include('layouts.messages')
     <form class="email-form" method="post" action="{{ route('send') }}">
@@ -136,8 +136,6 @@
         </div>
     </form>
     </div>
-
-        <div class="overlay"></div>
 
         @endsection
         @push('footer_scripts')
