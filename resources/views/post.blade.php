@@ -16,7 +16,7 @@
             <div class="swiper-wrapper">
             @foreach($post->getAttachments('slider') as $attachment)
                 <div class="swiper-slide">
-                    <img style="width: 100%" src="{{ Voyager::image($attachment->path) }}">
+                    <img style="" src="{{ Voyager::image($attachment->path) }}">
                 </div>
             @endforeach
             </div>

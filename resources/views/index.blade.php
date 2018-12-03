@@ -1,6 +1,19 @@
 @extends('layouts.app')
 @section('content')
-
+    <div class="main-button-container center">
+        <button type="button" class="btn pay-button">
+            <a class="" href="#help-title" style="text-decoration: none">Прошу помочь</a>
+        </button>
+        <button type="button" class="btn pay-button">
+            <a class="" href="{{ route('page', ['slug' => 'how-to-help'])}}" style="text-decoration: none">Хочу помочь</a>
+        </button>
+        <button type="button" class="btn pay-button">
+            <a class="" href="" style="text-decoration: none">Благотворительная онлайн-галлерея</a>
+        </button>
+        <button type="button" class="btn pay-button">
+            <a class="" href="{{ route('posts.by.category', ['slug' => 'social']) }}" style="text-decoration: none">Социальный статус - добродетель.</a>
+        </button>
+    </div>
     <section class="main-slider swiper-container">
         <div class="swiper-wrapper">
             @foreach($children_works as $work)
