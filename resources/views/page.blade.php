@@ -4,6 +4,11 @@
         <h2 class="display-4 center">
             {{ $page->name }}
         </h2>
+        @if(request()->slug == 'how-to-help')
+            <div class="center">
+                <img src="{{ Voyager::image(setting('site.donate')) }}">
+            </div>
+        @endif
         <div class="description">
             {!! $page->text !!}
         </div>

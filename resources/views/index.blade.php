@@ -1,18 +1,10 @@
 @extends('layouts.app')
 @section('content')
     <div class="main-button-container center">
-        <button type="button" class="btn pay-button">
-            <a class="" href="#help-title" style="text-decoration: none">Прошу помочь</a>
-        </button>
-        <button type="button" class="btn pay-button">
-            <a class="" href="{{ route('page', ['slug' => 'how-to-help'])}}" style="text-decoration: none">Хочу помочь</a>
-        </button>
-        <button type="button" class="btn pay-button">
-            <a class="" href="" style="text-decoration: none">Благотворительная онлайн-галлерея</a>
-        </button>
-        <button type="button" class="btn pay-button">
-            <a class="" href="{{ route('posts.by.category', ['slug' => 'social']) }}" style="text-decoration: none">Социальный статус - добродетель.</a>
-        </button>
+        <a class="btn pay-button" href="#help-title" style="text-decoration: none">Прошу помочь</a>
+        <a class="btn pay-button" href="{{ route('page', ['slug' => 'how-to-help'])}}" style="text-decoration: none">Хочу помочь</a>
+        <a class="btn pay-button" href="{{ route('page', ['slug' => 'gallery'])}}" style="text-decoration: none">Благотворительная онлайн-галлерея</a>
+        <a class="btn pay-button" href="{{ route('posts.by.category', ['slug' => 'social']) }}" style="text-decoration: none">Социальный статус - добродетель.</a>
     </div>
     <section class="main-slider swiper-container">
         <div class="swiper-wrapper">
@@ -94,63 +86,66 @@
     </section>
 
 
-        <section class="executive">
-            <div class="container">
-                <h2 class="main-title">Руководители проэкта</h2>
+    <section class="executive">
+        <div class="container">
+            <h2 class="main-title">Руководители проэкта</h2>
 
-                <div class="executive__list">
-                    <div class="executive__item">
-                        <img class="rounded-circle"
-                             src="{{ Voyager::image(setting('site.organisator_yaroslav')) }}"
-                             width="140" height="140">
-                        <p class="executive__title">Стригун Ярослав</p>
-                    </div>
-                    <div class="executive__item">
-                        <img class="rounded-circle"
-                             src="{{ Voyager::image(setting('site.organisator_nina')) }}"
-                             width="140" height="140">
-                        <p class="executive__title">Орловская Нина</p>
-                    </div>
-                    <div class="executive__item">
-                        <img class="rounded-circle"
-                             src="{{ Voyager::image(setting('site.organisator_maria')) }}"
-                             width="140" height="140">
-                        <p class="executive__title">Красова Мария</p>
-                    </div>
+            <div class="executive__list">
+                <div class="executive__item">
+                    <img class="rounded-circle"
+                         src="{{ Voyager::image(setting('site.organisator_yaroslav')) }}"
+                         width="140" height="140">
+                    <p class="executive__title">Стригун Ярослав</p>
                 </div>
-
-                <div class="executive__attention" role="alert">
-                    <strong>Внимание, </strong> нужны волонтеры!
+                <div class="executive__item">
+                    <img class="rounded-circle"
+                         src="{{ Voyager::image(setting('site.organisator_nina')) }}"
+                         width="140" height="140">
+                    <p class="executive__title">Орловская Нина</p>
+                </div>
+                <div class="executive__item">
+                    <img class="rounded-circle"
+                         src="{{ Voyager::image(setting('site.organisator_maria')) }}"
+                         width="140" height="140">
+                    <p class="executive__title">Красова Мария</p>
                 </div>
             </div>
-        </section>
+
+            <div class="executive__attention" role="alert">
+                <strong>Внимание, </strong> нужны волонтеры!
+            </div>
+        </div>
+    </section>
     <div class="container">
-        <h2 id="help-title" class="main-title">Вы можете обратиться к нам за помощью!</h2>
+        <h2 id="help-title" class="main-title">Прошу помочь</h2>
         @include('layouts.errors')
         @include('layouts.messages')
-    <form class="email-form" method="post" action="{{ route('send') }}">
-        @csrf
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Email</label>
-            <input name="email" type="email" class="form-control" placeholder="name@example.com" required value="{{ old('email') }}">
+        <div class="center">
+            <img src="{{ Voyager::image(setting('site.help_phone')) }}" style="width: 20%">
         </div>
-        <div class="form-group">
-            <label for="">Номер телефона</label>
-            <input name="phone" type="text" class="form-control" placeholder="+380933333333" value="{{ old('phone') }}">
-        </div>
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">Сообщение</label>
-            <textarea name="text" class="form-control" rows="5" required>{{ old('text') }}</textarea>
-        </div>
-        <div class="donate-link-wrap">
-            <button type="submit" class="btn pay-button center-block">
-                <p class="display-4" style="text-decoration: none">Отправить</p>
-            </button>
-        </div>
-    </form>
+        <form class="email-form" method="post" action="{{ route('send') }}">
+            @csrf
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Email</label>
+                <input name="email" type="email" class="form-control" placeholder="name@example.com" required value="{{ old('email') }}">
+            </div>
+            <div class="form-group">
+                <label for="">Номер телефона</label>
+                <input name="phone" type="text" class="form-control" placeholder="+380933333333" value="{{ old('phone') }}">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Сообщение</label>
+                <textarea name="text" class="form-control" rows="5" required placeholder="Мы, (Ф.И.О. родителей). Просим оказать финансовую помощь нашему ребёнку(Ф.И.О)">{{ old('text') }}</textarea>
+            </div>
+            <div class="donate-link-wrap">
+                <button type="submit" class="btn pay-button center-block">
+                    <p class="display-4" style="text-decoration: none">Отправить</p>
+                </button>
+            </div>
+        </form>
     </div>
 
-        @endsection
-        @push('footer_scripts')
-            <script src="{{ asset('js/index-page.js') }}"></script>
-    @endpush
+@endsection
+@push('footer_scripts')
+    <script src="{{ asset('js/index-page.js') }}"></script>
+@endpush
