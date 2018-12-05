@@ -10,7 +10,8 @@ class Attachment extends Model
         'path',
         'attachable_type',
         'attachable_id',
-        'roles'
+        'roles',
+        'text'
     ];
 
     public function post()

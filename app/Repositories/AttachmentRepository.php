@@ -21,13 +21,14 @@ class AttachmentRepository extends Repository
     {
         foreach ($request->input($input_type, []) as $slide_key => $attachments) {
             foreach ($attachments as $attachment_key => $attachment) {
+                $text = $attachment['text'];
                 $file = $request->file("$input_type.$slide_key.$attachment_key.image");
-                $this->saveAttachment($model, $file, $attachment['roles']);
+                $this->saveAttachment($model, $file, $attachment['roles'], $text);
             }
         }
     }
 
-    public function saveAttachment($model, $file, $roles)
+    public function saveAttachment($model, $file, $roles, $text)
     {
         if ($model instanceof FolderedAttachments)
             $directory = $model->getAttachmentDirectory();
@@ -40,6 +41,7 @@ class AttachmentRepository extends Repository
             'attachable_type' => is_null($model) ? $model : array_search(get_class($model), Relation::morphMap()),
             'path' => $path,
             'roles' => $roles,
+            'text' => $text
         ]);
 
         return $attachment;
@@ -76,11 +78,12 @@ class AttachmentRepository extends Repository
             $file = $request->file('main_attachment.' . $attachment_id . '.file');
             $attachment = $attachments->get($attachment_id);
             $roles = $attachment_data['roles'];
+            $text = $attachment_data['text'] ?? '';
 
             if ($attachment) {
-                $this->updateAttachment($attachment, $file, $roles);
+                $this->updateAttachment($attachment, $file, $roles, $text);
             } else {
-                $this->saveAttachment($model, $file, $roles);
+                $this->saveAttachment($model, $file, $roles, $text);
             }
         }
     }
@@ -89,14 +92,13 @@ class AttachmentRepository extends Repository
     {
         foreach ($request->input($input_type, []) as $attachment_id => $attachment_data) {
             $attachment = $attachments->get($attachment_id);
-            $titles = $attachment_data['titles'] ?? [];
-            $order = $attachment_data['order'] ?? [];
+            $text = $attachment_data['text'];
 
-            $this->updateAttachment($attachment, $request->file($attachment_id), $attachment_data['roles'], $titles, $order);
+            $this->updateAttachment($attachment, $request->file($attachment_id), $attachment_data['roles'], $text);
         }
     }
 
-    public function updateAttachment( Attachment $attachment, $file = null, array $roles = [], array $titles = [], $order = null)
+    public function updateAttachment( Attachment $attachment, $file = null, array $roles = [], $text)
     {
         $model = $attachment->attachable;
         $old_path = $path = $attachment->path;
@@ -113,6 +115,7 @@ class AttachmentRepository extends Repository
         $attachment->update([
             'roles' => $roles,
             'path' => $path,
+            'text' => $text
         ]);
 
         if ($path != $old_path) {

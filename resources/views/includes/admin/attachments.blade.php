@@ -12,6 +12,9 @@
                         <input type="hidden" name="attachments[{{$attachment->id}}][roles][]" value="{{ $role }}">
                     @endforeach
                         <input type="button" value="Удалить" class="btn btn-danger custom-delete-attachment">
+                    @if($text)
+                        <textarea name="attachments[{{$attachment->id}}][text]">{{ $attachment->text }}</textarea>
+                    @endif
                 </div>
                 <!-- /.change-image -->
             </div>
@@ -32,6 +35,9 @@
                     <img src="#" class="image">
                     <input type="file" name="attachments_new[{?}][0][image]" required onchange="readURL(this, $(this).prev());" >
                     <input type="hidden" name="attachments_new[{?}][0][roles][]" value="slider">
+                    @if($text)
+                        <textarea name="attachments[{?}][0][text]"></textarea>
+                    @endif
                 </div>
                 <input type="button"  value="Удалить" class="btn btn-danger delete delete-attachment">
             </div>
