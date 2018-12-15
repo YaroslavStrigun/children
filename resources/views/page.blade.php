@@ -12,14 +12,14 @@
         <div class="description">
             {!! $page->text !!}
         </div>
-        @if($page->sluf == 'gallery')
+        @if($page->slug == 'gallery')
             <section class="main-slider swiper-container">
                 <div class="swiper-wrapper">
-                    @foreach($attachments as $attachment)
+                    @foreach($page->attachments as $attachment)
                             <div class="swiper-slide">
                                 <img class="main-slider__image" src="{{ Voyager::image($attachment->path) }}">
                                 <div class="main-slider__text">
-                                    <div class="main-slider__text-container">
+                                    <div class="main-slider__text-container" style="max-height: 100%;!important;">
                                         {!! $attachment->text !!}
                                     </div>
                                 </div>
@@ -30,7 +30,7 @@
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
             </section>
-        @elseif
+        @else
         <div class="swiper-container attachment-slider" style="margin-bottom: 20px">
             <div class="swiper-wrapper">
                 @foreach($page->getAttachments('slider') as $attachment)

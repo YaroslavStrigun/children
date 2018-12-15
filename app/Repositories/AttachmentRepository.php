@@ -92,7 +92,7 @@ class AttachmentRepository extends Repository
     {
         foreach ($request->input($input_type, []) as $attachment_id => $attachment_data) {
             $attachment = $attachments->get($attachment_id);
-            $text = $attachment_data['text'];
+            $text = $attachment_data['text'] ?? '';
 
             $this->updateAttachment($attachment, $request->file($attachment_id), $attachment_data['roles'], $text);
         }
