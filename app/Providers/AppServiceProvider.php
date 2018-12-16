@@ -17,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
         Relation::morphMap([
             'page' => 'App\Models\Page',
             'post' => 'App\Models\Post',
+            'angel' => 'App\Models\Angel'
         ]);
     }
 
