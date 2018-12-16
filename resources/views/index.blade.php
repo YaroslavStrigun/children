@@ -22,6 +22,21 @@
                     </div>
                 @endif
             @endforeach
+                @foreach(\App\Models\Angel::all() as $angel)
+                    @php $work = $children_works->first(); @endphp
+                    @foreach($angel->attachments as $attachment)
+                        <div class="swiper-slide">
+                            <img class="main-slider__image" src="{{ Voyager::image($attachment->path) }}">
+                            <div class="main-slider__text">
+                                <div class="main-slider__text-container">
+                                    {!! $work->short_description !!}
+                                </div>
+                                <a class="read-more main-slider__link"
+                                   href="{{ route('post', ['slug' => $work->category->slug, 'id' => $work->id]) }}">Подробнее</a>
+                            </div>
+                        </div>
+                        @endforeach
+                @endforeach
         </div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-next"></div>
