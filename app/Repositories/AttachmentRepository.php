@@ -21,7 +21,7 @@ class AttachmentRepository extends Repository
     {
         foreach ($request->input($input_type, []) as $slide_key => $attachments) {
             foreach ($attachments as $attachment_key => $attachment) {
-                $text = $attachment['text'];
+                $text = $attachment['text'] ?? '';
                 $file = $request->file("$input_type.$slide_key.$attachment_key.image");
                 $this->saveAttachment($model, $file, $attachment['roles'], $text);
             }
